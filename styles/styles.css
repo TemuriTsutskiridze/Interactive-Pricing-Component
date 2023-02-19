@@ -48,7 +48,7 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 0 auto;
+    margin: 0 auto 55px;
 }
 
 .main_heading {
@@ -81,12 +81,19 @@ input[type="range"]::-webkit-slider-thumb {
     appearance: none;
     width: 40px;
     height: 40px;
-    background: #10D8C4;
+    background-color: #10D8C4;
     box-shadow: 0px 15px 30px rgba(0, 255, 231, 0.6);
     border-radius: 100px;
     background-image: url(../images/icon-slider.svg);
     background-repeat: no-repeat;
     background-position: top 50% left 50%;
+    cursor: pointer;
+    transition: .5s;
+}
+
+input[type="range"]::-webkit-slider-thumb:active {
+    background-color: #24AEA1;
+    transition: .5s;
 }
 
 .payment {
@@ -166,11 +173,6 @@ input[type="range"]::-webkit-slider-thumb {
     transition: .5s;
 }
 
-/* .toggle_slider:hover {
-    background-color: #7AEADF;
-    transition: .5s;
-} */
-
 .toggle_slider:before {
     position: absolute;
     content: "";
@@ -209,6 +211,7 @@ input:checked + .toggle_slider:before {
     flex-direction: column;
     align-items: center;
     gap: 33px;
+    margin-bottom: 45px;
 }
 
 .last ul {
@@ -233,14 +236,125 @@ input:checked + .toggle_slider:before {
     height: 41px;
     background: #293356;
     border-radius: 20.5px;
-    margin-bottom: 45px;
     transition: .5s;
+    border: none;
 }
 
 .start:hover {
     color: white;
     transition: .5s;
     cursor: pointer;
+}
+
+
+
+/* --------------------- RESPONSIVE --------------- */
+
+@media (min-width: 1440px) {
+    
+    body {
+        background-size: contain;
+    }
+
+    /* HEADER */
+
+    header {
+        padding: 104px 0px 92px;
+    }
+
+    .header_heading {
+        font-size: 28px;
+        line-height: 38px;
+    }
+
+    .header_paragraph {
+        font-size: 15px;
+        line-height: 20px;
+        margin-top: 12px;
+        max-width: 40ch;
+    }
+
+
+    /* MAIN */
+
+    main {
+        max-width: 540px;
+        margin-bottom: 137px;
+    }
+
+    .main_heading {
+        margin: 0;
+    }
+
+    .first_div {
+        width: 445px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 40px;
+    }
+
+    .main_heading {
+        font-size: 14px;
+        line-height: 19px;
+        letter-spacing: 2px;
+    }
+
+    .dollar {
+        font-size: 40px;
+        line-height: 55px;
+        letter-spacing: -1px;
+    }
+
+    .month {
+        font-size: 16px;
+        line-height: 22px;
+    }
+
+    input[type=range] {
+        width: 444px;
+    }
+    
+    .payment {
+        flex-direction: row;
+        gap: 8px;
+        margin-top: 0;
+    }
+
+    .toggle_slider:hover {
+        background-color: #7AEADF;
+        transition: .5s;
+        cursor: pointer;
+    }
+
+    .billing {
+        margin-top: 57px;
+        padding-bottom: 45px;
+        gap: 16px;
+        padding-right: 65px;
+    }
+
+    .yearly {
+        gap: 9px;
+    }
+
+    .yearly_percent {
+        width: 80px;
+        height: 19px;
+    }
+
+    .last {
+        width: 444px;
+        margin-top: 32px;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 33px;
+    }
+
+    .last ul {
+        align-items: flex-start;
+    }
 }
 
 
