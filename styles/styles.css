@@ -34,3 +34,43 @@ header {
     max-width: 22ch;
 }
 
+
+
+
+/* ------------------ MAIN -------------- */
+
+main {
+    background-color: white;
+    box-shadow: 0px 20px 30px -5px rgba(127, 137, 185, 0.152073);
+    border-radius: 8px;
+    max-width: 327px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.main_heading {
+    font-weight: 800;
+    font-size: 12px;
+    line-height: 16px;
+    text-align: center;
+    letter-spacing: 1.71429px;
+    text-transform: uppercase;
+    color: #848EAD;
+    margin-top: 34px;
+}
+
+:root {
+    --before-thumb-color: #A4F3EB;
+    --after-thumb-color: #ECF0FB;
+    --thumb-position: 50%;
+}
+
+input[type=range] {
+    appearance: none;
+    width: 279px;
+    height: 8px;
+    background: linear-gradient(to right, var(--before-thumb-color) 0%, var(--before-thumb-color) var(--thumb-position), var(--after-thumb-color) var(--thumb-position), var(--after-thumb-color) 100%);
+    border-radius: 5px;
+}
