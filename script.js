@@ -1,9 +1,65 @@
+`use strict`
+
+// ----------------------- functionality ------------------ //
+
 const slider = document.querySelector('input[type="range"]');
 
-slider.addEventListener("input", function() {
-    const thumbPosition = (this.value - this.min) / (this.max - this.min); 
-    const thumbPositionPercent = thumbPosition * 100 + '%'; // converts thumbPosition to percentage
-    document.documentElement.style.setProperty('--thumb-position', thumbPositionPercent); // assigns thumpPercentage to varable that is created in styles.css
+slider.addEventListener("input", (event) => {
+
+  // slider movement
+
+  const thumbPosition = (event.target.value - event.target.min) / (event.target.max - event.target.min); 
+  const thumbPositionPercent = thumbPosition * 100 + '%'; // converts thumbPosition to percentage
+  document.documentElement.style.setProperty('--thumb-position', thumbPositionPercent); // assigns thumpPercentage to varable that is created in styles.css
+
+  // slider calculation
+
+  let dollar = String(dollar_text.textContent);
+  if (dollar.length = 6) {
+    dollar = dollar.slice(1, 6);
+  } else {
+    dollar = dollar.slice(1, 7);
+  }
+  
+  dollar = Number(dollar);
+  if (!toggle.checked) {
+    dollar = 38 * event.target.value / 100;
+  } else {
+    dollar = 387.60 * event.target.value / 100;
+  }
+  
+  dollar = dollar.toFixed(2);
+  dollar = `$${dollar}`; 
+  dollar_text.textContent = dollar;
+  
+});
+
+
+// toggle 
+
+const toggle = document.querySelector('input[type="checkbox"]');
+
+toggle.addEventListener("change", (event) => {
+  let dollar = String(dollar_text.textContent);
+  if (dollar.length = 6) {
+    dollar = dollar.slice(1, 6);
+  } else {
+    dollar = dollar.slice(1, 7);
+  }
+  dollar = Number(dollar);
+  if (event.target.checked) {
+    dollar = (dollar * 12) * 85 / 100;
+    dollar = dollar.toFixed(2);
+    dollar = `$${dollar}`; 
+    dollar_text.textContent = dollar;
+    month_year_text.textContent = "/ year"
+  } else {
+    dollar = dollar / (12 * 85 / 100);
+    dollar = dollar.toFixed(2);
+    dollar = `$${dollar}`; 
+    dollar_text.textContent = dollar;
+    month_year_text.textContent = "/ month"
+  }
 });
 
 
@@ -39,3 +95,7 @@ mediaQuery.addListener(handleScreenSizeChange);
 handleScreenSizeChange(mediaQuery);
 
 
+// declaring variables for dollar text and "month" text
+
+let dollar_text = document.querySelector(".dollar");
+const month_year_text = document.querySelector(".month");
